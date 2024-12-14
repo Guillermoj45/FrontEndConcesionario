@@ -1,0 +1,36 @@
+
+<div class="contenedor">
+
+  <h1 class="title">
+    Concesionarios Maricarmen
+  </h1>
+  <div class="blurry">
+  <ion-title>
+    Registro
+  </ion-title>
+    <div class="redondear">
+      <ion-item class="redondear">
+        <ion-input labelPlacement="floating" [(ngModel)]="username">
+          <div slot="label">Nombre de usuario <ion-text color="danger">*</ion-text></div>
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="redondear">
+        <ion-input labelPlacement="floating" [(ngModel)]="email">
+          <div slot="label">Correo <ion-text color="danger">*</ion-text></div>
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="redondear">
+        <ion-input labelPlacement="floating" type="password" [(ngModel)]="password">
+          <div slot="label">Contraseña <ion-text color="danger">*</ion-text></div>
+        </ion-input>
+      </ion-item>
+    </div>
+    <ion-button (click)="login()">Registrar</ion-button>
+
+    <br>
+    <a href="/login">Iniciar sesión</a>
+  </div>
+
+</div>

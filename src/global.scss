@@ -35,3 +35,43 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+
+
+
+
+.blurry {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  height: fit-content;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.contenedor {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('https://esmove.es/wp-content/uploads/2023/11/coche-electrico-mas-barato.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.redondear {
+  margin: 1rem;
+  border-radius: 1rem;
+}

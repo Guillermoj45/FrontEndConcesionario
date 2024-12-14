@@ -17,4 +17,13 @@ export class LoginService {
     }
     return this.http.post<string>("/api/user/login", params, {context: new HttpContext().set(SkipAuth, true), responseType: 'text' as 'json'});
   }
+
+  register(username:string, email:string, password:string):Observable<string> {
+    const params = {
+      username: username,
+      email: email,
+      password: password
+    }
+    return this.http.post<string>("/api/user", params, {context: new HttpContext().set(SkipAuth, true), responseType: 'text' as 'json'});
+  }
 }

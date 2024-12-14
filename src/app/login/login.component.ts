@@ -15,13 +15,13 @@ import {AuthService} from "../service/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-login',
+  templateUrl: 'login.component.html',
+  styleUrls: ['login.component.scss'],
   standalone: true,
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, FormsModule, IonInput, IonLabel, IonItem, IonButton, IonText],
 })
-export class HomePage {
+export class LoginComponent {
   username: string = "";
   password: string = "";
 
