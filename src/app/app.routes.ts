@@ -1,6 +1,8 @@
 import {Routes} from '@angular/router';
 import {LoginComponent} from "./pantallas/login/login.component";
 import {BookingAdministrationComponent} from "./pantallas/booking-administration/booking-administration.component";
+import {VehicleAdministrationComponent} from "./pantallas/vehicle-administration/vehicle-administration.component";
+import {VehicleCategoryComponent} from "./pantallas/vehicle-category/vehicle-category.component";
 
 export const routes: Routes = [
   {
@@ -24,4 +26,12 @@ export const routes: Routes = [
     path: 'booking-administration',
     component: BookingAdministrationComponent,
   },
+  {
+    path: 'vehicle-administration',
+    component: VehicleAdministrationComponent
+  },
+  {
+    path: 'vehicle-category',
+    component: VehicleCategoryComponent
+  }
 ];

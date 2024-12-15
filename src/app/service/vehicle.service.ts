@@ -15,4 +15,15 @@ export class VehicleService {
     return this.http.get<Vehicle[]>('api/vehicle');
   }
 
+  getVehicleByBrand(idBrand: number): Observable<Vehicle[]> {
+    return this.http.get<Vehicle[]>(`api/vehicle/brand/${idBrand}`);
+  }
+
+  getVehicleByModel(modelNane: any) {
+    return this.http.get<Vehicle[]>(`api/vehicle/model/${modelNane}`);
+  }
+
+  getVehicleByModelAndBrand(modelName: string, numberBrand: number) {
+    return this.http.get<Vehicle[]>(`api/vehicle/model/${modelName}/brand/${numberBrand}`);
+  }
 }
