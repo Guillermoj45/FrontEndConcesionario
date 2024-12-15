@@ -1,22 +1,25 @@
-
 <div class="contenedor">
 
   <h1 class="title">
     Concesionarios Maricarmen
   </h1>
   <div class="blurry">
-  <ion-title>
-    Inicio de sesión
+    <ion-title>
+      Inicio de sesión
     </ion-title>
     <ion-item class="redondear">
-      <ion-input labelPlacement="floating" [(ngModel)]="username">
-        <div slot="label">Nombre de usuario <ion-text color="danger">*</ion-text></div>
+      <ion-input [(ngModel)]="username" labelPlacement="floating">
+        <div slot="label">Nombre de usuario
+          <ion-text color="danger">*</ion-text>
+        </div>
       </ion-input>
     </ion-item>
 
     <ion-item class="redondear">
-      <ion-input labelPlacement="floating" type="password" [(ngModel)]="password">
-        <div slot="label">Contraseña <ion-text color="danger">*</ion-text></div>
+      <ion-input [(ngModel)]="password" labelPlacement="floating" type="password">
+        <div slot="label">Contraseña
+          <ion-text color="danger">*</ion-text>
+        </div>
       </ion-input>
     </ion-item>
     <ion-button (click)="login()">Iniciar sesión</ion-button>

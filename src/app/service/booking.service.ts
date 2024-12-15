@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Booking} from "../models/Booking";
 
@@ -7,9 +7,10 @@ import {Booking} from "../models/Booking";
 })
 export class BookingService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getBookings(){
+  getBookings() {
     return this.http.get<Booking[]>('/api/booking')
   }
 }

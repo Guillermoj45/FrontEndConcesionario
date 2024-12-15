@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Vehicle} from "../models/Vehicle";
@@ -8,9 +8,10 @@ import {Vehicle} from "../models/Vehicle";
 })
 export class VehicleService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getAllVehicles():Observable<Vehicle[]>{
+  getAllVehicles(): Observable<Vehicle[]> {
     return this.http.get<Vehicle[]>('api/vehicle');
   }
 

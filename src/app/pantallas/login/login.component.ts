@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {
-  IonHeader,
-  IonToolbar,
-  IonTitle,
+  IonButton,
   IonContent,
+  IonHeader,
   IonInput,
-  IonLabel,
   IonItem,
-  IonButton, IonText
+  IonLabel,
+  IonText,
+  IonTitle,
+  IonToolbar
 } from '@ionic/angular/standalone';
 import {FormsModule} from "@angular/forms";
 import {LoginService} from "../../service/Login.service";
@@ -26,10 +27,11 @@ export class LoginComponent {
   password: string = "";
 
   constructor(
-    private loginService:LoginService,
+    private loginService: LoginService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) {
+  }
 
   login() {
     this.loginService.login(this.username, this.password).subscribe((response) => {

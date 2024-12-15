@@ -1,5 +1,5 @@
 <app-navar></app-navar>
 <ion-searchbar animated="true" placeholder="Busca tu futuro cohe"></ion-searchbar>
 <ion-content style="display: flex; flex-direction: row; flex-wrap: wrap;">
-<app-tarjeta-coche [vehicle]="vehicle" *ngFor="let vehicle of vehicles" class="tarje"></app-tarjeta-coche>
+  <app-tarjeta-coche *ngFor="let vehicle of vehicles" [vehicle]="vehicle" class="tarje"></app-tarjeta-coche>
 </ion-content>

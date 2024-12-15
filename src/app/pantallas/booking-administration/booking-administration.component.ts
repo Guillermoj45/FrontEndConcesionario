@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavarComponent} from "../../component/navar/navar.component";
 import {IonContent, IonTitle} from "@ionic/angular/standalone";
 import {
@@ -23,28 +23,30 @@ import {Vehicle} from "../../models/Vehicle";
   ],
   standalone: true
 })
-export class BookingAdministrationComponent  implements OnInit {
+export class BookingAdministrationComponent implements OnInit {
   bookings: Booking[] = [];
-  constructor(private bookingService:BookingService) { }
+
+  constructor(private bookingService: BookingService) {
+  }
 
   ngOnInit() {
     this.bookingService.getBookings().subscribe({
       next: (data) => {
 
-      this.bookings = data.map((item: any) => new Booking(
-        item.id,
-        new Date(item.dateBooking),
-        new Date(item.dateDelivery),
-        new User(item.user.id, item.user.username, item.user.email),
-        new Vehicle(
-          item.vehicle.id,
-          item.vehicle.model,
-          new Date(item.vehicle.year),
-          item.vehicle.price,
-          item.vehicle.image,
-          item.vehicle.brand,
-          item.vehicle.status
-        )
+        this.bookings = data.map((item: any) => new Booking(
+          item.id,
+          new Date(item.dateBooking),
+          new Date(item.dateDelivery),
+          new User(item.user.id, item.user.username, item.user.email),
+          new Vehicle(
+            item.vehicle.id,
+            item.vehicle.model,
+            new Date(item.vehicle.year),
+            item.vehicle.price,
+            item.vehicle.image,
+            item.vehicle.brand,
+            item.vehicle.status
+          )
         ));
 
         console.log('Data received:', this.bookings);
