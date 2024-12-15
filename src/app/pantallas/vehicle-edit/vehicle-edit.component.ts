@@ -49,7 +49,8 @@ export class VehicleEditComponent  implements OnInit {
 
   onSubmit() {
     this.vehicleService.updateVehicle(this.vehicle).subscribe(() => {
-      this.router.navigate(['/vehicle-administration']).then(r => console.log(r));
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate(['/vehicle-administration/']).then(r => console.log(r));
     });
   }
 }
