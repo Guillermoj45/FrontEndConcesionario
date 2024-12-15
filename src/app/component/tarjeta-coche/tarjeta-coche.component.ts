@@ -20,4 +20,7 @@ export class TarjetaCocheComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRent(vehicle: Vehicle) {
+
+  }
 }

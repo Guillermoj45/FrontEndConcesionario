@@ -4,6 +4,7 @@
   <ion-card-header>
     <ion-card-title>{{ vehicle.model }} {{ vehicle.year.getFullYear() }}</ion-card-title>
     <ion-card-subtitle>{{ vehicle.brand }}  {{ vehicle.price }}</ion-card-subtitle>
+    <ion-button (click)="onRent(vehicle)">Alquilar</ion-button>
   </ion-card-header>
 
   <ion-card-content>

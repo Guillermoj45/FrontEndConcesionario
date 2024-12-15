@@ -8,7 +8,8 @@
 
   <ion-card-content>
     <div style="display: flex">
-      <ion-button color="danger">eliminar</ion-button>
+      <ion-button color="danger" id="present-alert{{ vehicle.id }}">Eliminar</ion-button>
+      <ion-alert trigger="present-alert{{ vehicle.id }}" class="custom-alert" header="Esta seguro?" [buttons]="alertButtons"></ion-alert>
       <ion-button routerLink="/vehicle-edit/{{ vehicle.id }}">edit</ion-button>
     </div>
   </ion-card-content>

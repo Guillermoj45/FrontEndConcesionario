@@ -35,4 +35,8 @@ export class VehicleService {
   getVehicleById(vehicleId: string) {
     return this.http.get<Vehicle>(`api/vehicle/${vehicleId}`);
   }
+
+  deleteVehicle(vehicle: Vehicle) {
+    return this.http.delete(`api/vehicle/${vehicle.id}`);
+  }
 }
