@@ -11,11 +11,13 @@ import {Vehicle} from "../../models/Vehicle";
     IonicModule
   ]
 })
-export class TarjetaCocheComponent  implements OnInit {
-  @Input() vehicle: Vehicle = new Vehicle(0, "SEAT", new Date(), 0,"https://storage.googleapis.com/pod_public/1300/173321.jpg", "Ibiza", "");
+export class TarjetaCocheComponent implements OnInit {
+  @Input() vehicle: Vehicle = new Vehicle(0, "SEAT", new Date(), 0, "https://storage.googleapis.com/pod_public/1300/173321.jpg", "Ibiza", "");
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

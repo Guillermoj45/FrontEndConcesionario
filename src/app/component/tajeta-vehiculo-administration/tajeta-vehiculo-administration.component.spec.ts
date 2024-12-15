@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { TajetaVehiculoAdministrationComponent } from './tajeta-vehiculo-administration.component';
+import {TajetaVehiculoAdministrationComponent} from './tajeta-vehiculo-administration.component';
 
 describe('TajetaVehiculoAdministrationComponent', () => {
   let component: TajetaVehiculoAdministrationComponent;
@@ -9,7 +9,7 @@ describe('TajetaVehiculoAdministrationComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TajetaVehiculoAdministrationComponent ],
+      declarations: [TajetaVehiculoAdministrationComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

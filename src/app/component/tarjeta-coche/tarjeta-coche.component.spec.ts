@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { TarjetaCocheComponent } from './tarjeta-coche.component';
+import {TarjetaCocheComponent} from './tarjeta-coche.component';
 
 describe('TarjetaCocheComponent', () => {
   let component: TarjetaCocheComponent;

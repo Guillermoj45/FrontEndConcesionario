@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router, RouterLink} from "@angular/router";
 import {UserService} from "../../service/user.service";
 import {NgIf} from "@angular/common";
@@ -13,23 +13,24 @@ import {NgIf} from "@angular/common";
     NgIf
   ]
 })
-export class NavarComponent  implements OnInit {
+export class NavarComponent implements OnInit {
   username: string = "SinNombre";
   rol: string = "SinRol";
 
   constructor(
     private userService: UserService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
-      this.getUserNameAndRole();
-      this.router.events.subscribe((event) => {
-          if (event instanceof NavigationEnd) {
-            this.getUserNameAndRole();
-          }
-        });
-      this.router.navigate([this.router.url]);
+    this.getUserNameAndRole();
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.getUserNameAndRole();
+      }
+    });
+    this.router.navigate([this.router.url]);
   }
 
   ngAfterViewInit() {
@@ -38,17 +39,17 @@ export class NavarComponent  implements OnInit {
   }
 
 
-  getUserNameAndRole(){
+  getUserNameAndRole() {
     this.userService.getUser().subscribe({
       next: (user) => {
         // Código para manejar la respuesta válida
-      this.username = user.username;
-      this.rol = user.rol;
-      console.log("Nombre de usuario:",user.username, "Rol:", user.rol);
+        this.username = user.username;
+        this.rol = user.rol;
+        console.log("Nombre de usuario:", user.username, "Rol:", user.rol);
       },
       error: (err) => {
         // Código para manejar la respuesta inválida
-        if (err.status === 403){
+        if (err.status === 403) {
           console.log("No autorizado");
           this.router.navigate(["/login"]);
         }

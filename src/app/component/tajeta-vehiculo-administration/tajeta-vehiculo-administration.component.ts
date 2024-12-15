@@ -1,8 +1,6 @@
-import {AfterViewInit, Component, Input, OnInit, Query} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {IonicModule} from "@ionic/angular";
-import {Vehicle} from "../../models/Vehicle";
 import {Booking} from "../../models/Booking";
-import {BookingService} from "../../service/booking.service";
 import {DatePipe} from "@angular/common";
 
 @Component({
@@ -15,17 +13,17 @@ import {DatePipe} from "@angular/common";
   ],
   standalone: true
 })
-export class TajetaVehiculoAdministrationComponent  implements OnInit, AfterViewInit {
+export class TajetaVehiculoAdministrationComponent implements OnInit, AfterViewInit {
   @Input() bookings!: Booking;
   idStatus!: string;
-  status!:HTMLElement | null;
+  status!: HTMLElement | null;
 
   constructor() {
 
   }
 
   ngOnInit() {
-    this.idStatus = `booking${ this.bookings.id }`;
+    this.idStatus = `booking${this.bookings.id}`;
   }
 
   ngAfterViewInit() {
