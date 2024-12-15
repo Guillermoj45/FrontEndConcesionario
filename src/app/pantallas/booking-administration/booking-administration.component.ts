@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NavarComponent} from "../../component/navar/navar.component";
-import {IonTitle} from "@ionic/angular/standalone";
+import {IonContent, IonTitle} from "@ionic/angular/standalone";
 import {
   TajetaVehiculoAdministrationComponent
 } from "../../component/tajeta-vehiculo-administration/tajeta-vehiculo-administration.component";
@@ -18,7 +18,8 @@ import {Vehicle} from "../../models/Vehicle";
     NavarComponent,
     IonTitle,
     TajetaVehiculoAdministrationComponent,
-    NgForOf
+    NgForOf,
+    IonContent
   ],
   standalone: true
 })
