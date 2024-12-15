@@ -3,6 +3,7 @@ import {LoginComponent} from "./pantallas/login/login.component";
 import {BookingAdministrationComponent} from "./pantallas/booking-administration/booking-administration.component";
 import {VehicleAdministrationComponent} from "./pantallas/vehicle-administration/vehicle-administration.component";
 import {VehicleCategoryComponent} from "./pantallas/vehicle-category/vehicle-category.component";
+import {VehicleEditComponent} from "./pantallas/vehicle-edit/vehicle-edit.component";
 
 export const routes: Routes = [
   {
@@ -33,5 +34,9 @@ export const routes: Routes = [
   {
     path: 'vehicle-category',
     component: VehicleCategoryComponent
+  },
+  {
+    path: 'vehicle-edit/:id',
+    component: VehicleEditComponent
   }
 ];

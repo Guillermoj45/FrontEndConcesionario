@@ -1,19 +1,64 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {NavarComponent} from "../../component/navar/navar.component";
+import {IonicModule} from "@ionic/angular";
+import {TarjetaCocheComponent} from "../../component/tarjeta-coche/tarjeta-coche.component";
+import {VehicleService} from "../../service/vehicle.service";
+import {Vehicle} from "../../models/Vehicle";
+import {NgForOf} from "@angular/common";
+import {TajetaVehiculoAdminComponent} from "../../component/tajeta-vehiculo-admin/tajeta-vehiculo-admin.component";
+import {
+  TajetaVehiculoAdministrationComponent
+} from "../../component/tajeta-vehiculo-administration/tajeta-vehiculo-administration.component";
 
 @Component({
   selector: 'app-vehicle-administration',
   templateUrl: './vehicle-administration.component.html',
   styleUrls: ['./vehicle-administration.component.scss'],
   imports: [
-    NavarComponent
+    NavarComponent,
+    IonicModule,
+    TarjetaCocheComponent,
+    NgForOf,
+    TajetaVehiculoAdminComponent,
+    TajetaVehiculoAdministrationComponent
   ],
   standalone: true
 })
-export class VehicleAdministrationComponent  implements OnInit {
+export class VehicleAdministrationComponent  implements OnInit, AfterViewInit {
+  vehicles:Vehicle[] = [];
 
-  constructor() { }
+  constructor(private vehicleService:VehicleService) {
 
-  ngOnInit() {}
+  }
+
+  ngOnInit() {
+    console.log("hola")
+    this.vehicleService.getAllVehicles().subscribe({
+      next: (data: Vehicle[]) => {
+        this.vehicles = this.mapVehicle(data);
+        console.log(data);
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    })
+  }
+
+  ngAfterViewInit() {
+  }
+
+  mapVehicle(vehicle:any):Vehicle[] {
+    return vehicle.map((vehicle: any):Vehicle => {
+      return new Vehicle(
+        vehicle.id,
+        vehicle.model,
+        new Date(vehicle.year),
+        vehicle.price,
+        vehicle.image,
+        vehicle.brand,
+        vehicle.status
+      );
+    });
+  }
 
 }

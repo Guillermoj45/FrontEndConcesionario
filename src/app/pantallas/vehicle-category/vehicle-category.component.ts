@@ -10,6 +10,7 @@ import {VehicleService} from "../../service/vehicle.service";
 import {Vehicle} from "../../models/Vehicle";
 import {TarjetaCocheComponent} from "../../component/tarjeta-coche/tarjeta-coche.component";
 import {FormsModule} from "@angular/forms";
+import {NgxSliderModule, Options} from "@angular-slider/ngx-slider";
 
 @Component({
   selector: 'app-vehicle-category',
@@ -20,7 +21,8 @@ import {FormsModule} from "@angular/forms";
     IonicModule,
     NgForOf,
     TarjetaCocheComponent,
-    FormsModule
+    FormsModule,
+    NgxSliderModule
   ],
   standalone: true
 })
@@ -31,7 +33,17 @@ export class VehicleCategoryComponent  implements OnInit {
   price: number = 0;
   minPrice: number = 99999;
   maxPrice: number = 0;
+
+  minPriceSelected: number = 0;
+  maxPriceSelected: number = 9999999;
+
   vehicles: Vehicle[] = [];
+  sliderOptions: Options = {
+    floor: 0,
+    ceil: 10,
+    step: 1
+  };
+
 
   constructor(
     private brandService: BrandServiceService,
@@ -42,6 +54,15 @@ export class VehicleCategoryComponent  implements OnInit {
 
   ngOnInit() {
     this.recuest();
+
+  }
+
+  refresco(){
+    this.sliderOptions = {
+      floor: this.minPrice,
+      ceil: this.maxPrice,
+      step: 1
+    };
   }
 
   selectecBrand(idBrand: number){
@@ -50,19 +71,30 @@ export class VehicleCategoryComponent  implements OnInit {
     this.seach();
   }
 
+  priceSelected(){
+    this.seach()
+  }
+
+  seachPrice(){
+    const filteredVehicles: Vehicle[] = [];
+    this.minPriceSelected = 0
+    this.maxPriceSelected = 9999999
+    for (const vehicle of this.vehicles) {
+      console.log(vehicle.price, this.minPriceSelected, this.maxPriceSelected);
+      if (vehicle.price >= this.minPriceSelected && vehicle.price <= this.maxPriceSelected) {
+        filteredVehicles.push(vehicle);
+      }
+    }
+    this.vehicles = filteredVehicles;
+  }
+
   seach(){
     if (this.idBrandSelected === -1 && this.modelName === '') {
       this.vehicleService.getAllVehicles().subscribe({
         next: (response) => {
-          response.forEach((vehicle) => {
-            if (vehicle.price > this.maxPrice) {
-              this.maxPrice = vehicle.price;
-            } else if (vehicle.price < this.minPrice) {
-              this.minPrice = vehicle.price;
-            }
-          })
           console.log(response, "Precio maximo: ", this.maxPrice, "Precio minimo: ", this.minPrice);
           this.vehicles = this.mapVehicles(response);
+          this.seachPrice()
         },
         error: (error) => {
           console.log(error);
@@ -74,6 +106,7 @@ export class VehicleCategoryComponent  implements OnInit {
         next: (response) => {
           console.log(response);
           this.vehicles = this.mapVehicles(response);
+          this.seachPrice()
         },
         error: (error) => {
           console.log(error);
@@ -85,6 +118,7 @@ export class VehicleCategoryComponent  implements OnInit {
         next: (response) => {
           console.log(response);
           this.vehicles = this.mapVehicles(response);
+          this.seachPrice()
         },
         error: (error) => {
           console.log(error);
@@ -96,15 +130,27 @@ export class VehicleCategoryComponent  implements OnInit {
         next: (response) => {
           console.log(response);
           this.vehicles = this.mapVehicles(response);
+          this.seachPrice()
         },
         error: (error) => {
           console.log(error);
         }
       });
     }
+
   }
 
   mapVehicles(response: Vehicle[]) {
+    this.refresco();
+    response.forEach((vehicle) => {
+      if (vehicle.price > this.maxPrice) {
+        this.maxPrice = vehicle.price;
+      } else if (vehicle.price < this.minPrice) {
+        this.minPrice = vehicle.price;
+      }
+    })
+    console.log(this.maxPrice, this.minPrice);
+    console.log("refrescafsdfsdfsdfsdfsdfskskdbfkmsbdkbksbflkbsdkfbksjdfklbsdkfjbskdbfkjsbdfkjskdjfbksjbdfkjsdfndo");
     return response.map(item => new Vehicle(
       item.id,
       item.model,

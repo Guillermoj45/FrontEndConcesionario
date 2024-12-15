@@ -13,16 +13,18 @@
       <ion-radio value="{{ brand.id }}" (click)="selectecBrand(brand.id)" aria-label="Custom checkbox that is checked">{{ brand.name }}</ion-radio>
     </div>
   </ion-radio-group>
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <mat-slider
-      min="0"
-      max="2000"
-      step="10"
-      [(ngModel)]="maxValue"
-      thumbLabel
-    ></mat-slider>
-    <span>{{ maxValue }} €</span>
-  </div>
+    <div>
+      <h3>Seleccione un rango de precios</h3>
+      <ngx-slider
+        (click)="priceSelected()"
+        [(value)]="minPriceSelected"
+        [(highValue)]="maxPriceSelected"
+        [options]="sliderOptions"
+        [(ngModel)]="price"
+      >
+      </ngx-slider>
+      <p>Rango seleccionado: {{ minPriceSelected }} € - {{ maxPriceSelected }} €</p>
+    </div>
   <ion-content class="ion-padding">
     <ion-menu-toggle>
       <ion-button>Click to close the menu</ion-button>
@@ -39,7 +41,11 @@
 
   </div>
   <ion-content>
-    <app-tarjeta-coche [vehicle]="vehicle" *ngFor="let vehicle of vehicles"></app-tarjeta-coche>
+    <div style="display: flex; flex-wrap: wrap">
+      <div *ngFor="let vehicle of vehicles" style="display: flex !important; width: max-content" >
+        <app-tarjeta-coche  [vehicle]="vehicle" class="tarje"></app-tarjeta-coche>
+      </div>
+    </div>
   </ion-content>
 </div>
 

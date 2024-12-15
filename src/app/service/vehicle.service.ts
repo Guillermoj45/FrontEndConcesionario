@@ -26,4 +26,13 @@ export class VehicleService {
   getVehicleByModelAndBrand(modelName: string, numberBrand: number) {
     return this.http.get<Vehicle[]>(`api/vehicle/model/${modelName}/brand/${numberBrand}`);
   }
+
+  updateVehicle(vehicle: Vehicle) {
+    console.log(vehicle);
+    return this.http.put<Vehicle>(`api/vehicle`, vehicle);
+  }
+
+  getVehicleById(vehicleId: string) {
+    return this.http.get<Vehicle>(`api/vehicle/${vehicleId}`);
+  }
 }

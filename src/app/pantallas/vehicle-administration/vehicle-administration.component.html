@@ -1,1 +1,9 @@
 <app-navar></app-navar>
+
+<ion-content>
+  <div style="display: flex; flex-wrap: wrap">
+    <div *ngFor="let vehicle of vehicles" style="display: flex !important; width: max-content" >
+      <app-tajeta-vehiculo-admin [vehicle]="vehicle" class="tarje"></app-tajeta-vehiculo-admin>
+    </div>
+  </div>
+</ion-content>
