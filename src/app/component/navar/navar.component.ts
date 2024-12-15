@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, RouterLink} from "@angular/router";
+import {NavigationEnd, Router, RouterLink} from "@angular/router";
 import {UserService} from "../../service/user.service";
 import {NgIf} from "@angular/common";
 
@@ -23,14 +23,22 @@ export class NavarComponent  implements OnInit {
   ) { }
 
   ngOnInit() {
+      this.getUserNameAndRole();
+      this.router.events.subscribe((event) => {
+          if (event instanceof NavigationEnd) {
+            this.getUserNameAndRole();
+          }
+        });
+      this.router.navigate([this.router.url]);
   }
 
   ngAfterViewInit() {
-    this.getUserName();
+    this.getUserNameAndRole();
+    this.router.navigate([this.router.url]);
   }
 
 
-  getUserName(){
+  getUserNameAndRole(){
     this.userService.getUser().subscribe({
       next: (user) => {
         // Código para manejar la respuesta válida

@@ -1,0 +1,14 @@
+<ion-card>
+  <img alt="Silhouette of mountains" [src]="bookings.vehicle.image" />
+  <ion-card-header>
+    <ion-card-title>{{ bookings.vehicle.model }} {{ bookings.vehicle.year.getFullYear() }}</ion-card-title>
+    <span [id]="idStatus"></span>
+    <ion-card-subtitle>{{ bookings.vehicle.brand }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    Fecha de recogida: {{ bookings.dateDelivery.getDay() }}/{{ bookings.dateDelivery.getMonth() }}/{{ bookings.dateDelivery.getFullYear() }} <br>
+    Fecha de devolución: {{ bookings.dateBooking.getDay() }}/{{ bookings.dateBooking.getMonth() }}/{{ bookings.dateBooking.getFullYear() }} <br>
+  </ion-card-content>
+</ion-card>
+
