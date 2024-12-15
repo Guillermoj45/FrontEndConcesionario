@@ -22,7 +22,7 @@ import {NavarComponent} from "../../component/navar/navar.component";
   ]
 })
 export class VehicleEditComponent  implements OnInit {
-  vehicle:Vehicle = new Vehicle(0, "SEAT", new Date(), 0, "https://storage.googleapis.com/pod_public/1300/173321.jpg", "Ibiza", "");
+  vehicle:Vehicle = new Vehicle(-1, "", new Date(), 0, "", "", "");
   brands:Brand[] = [];
 
   constructor(
@@ -34,6 +34,9 @@ export class VehicleEditComponent  implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this.vehicle.id === -1) {
+      this.vehicle.id = undefined;
+    }
     const vehicleId = this.route.snapshot.paramMap.get('id');
     console.log(vehicleId);
     if (vehicleId) {

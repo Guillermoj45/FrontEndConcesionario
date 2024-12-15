@@ -36,7 +36,7 @@ export class HomePage implements OnInit {
     this.vehicleService.getAllVehicles().subscribe({
       next: (vehicles) => {
         const mappedVehicles = vehicles.map(vehicle => new Vehicle(
-          vehicle.id,
+          vehicle.id!,
           vehicle.model,
           new Date(vehicle.year),
           vehicle.price,

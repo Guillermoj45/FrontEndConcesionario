@@ -9,6 +9,9 @@ import {TajetaVehiculoAdminComponent} from "../../component/tajeta-vehiculo-admi
 import {
   TajetaVehiculoAdministrationComponent
 } from "../../component/tajeta-vehiculo-administration/tajeta-vehiculo-administration.component";
+import {addIcons} from "ionicons";
+import {add, create} from "ionicons/icons";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-vehicle-administration',
@@ -27,8 +30,8 @@ import {
 export class VehicleAdministrationComponent  implements OnInit, AfterViewInit {
   vehicles:Vehicle[] = [];
 
-  constructor(private vehicleService:VehicleService) {
-
+  constructor(private vehicleService:VehicleService, private router:Router) {
+    addIcons({add})
   }
 
   ngOnInit() {
@@ -61,4 +64,9 @@ export class VehicleAdministrationComponent  implements OnInit, AfterViewInit {
     });
   }
 
+  createCar(){
+    this.router.navigate(['/vehicle-create'])
+  }
+
+  protected readonly create = create;
 }

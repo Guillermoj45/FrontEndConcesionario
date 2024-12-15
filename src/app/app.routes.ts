@@ -4,17 +4,14 @@ import {BookingAdministrationComponent} from "./pantallas/booking-administration
 import {VehicleAdministrationComponent} from "./pantallas/vehicle-administration/vehicle-administration.component";
 import {VehicleCategoryComponent} from "./pantallas/vehicle-category/vehicle-category.component";
 import {VehicleEditComponent} from "./pantallas/vehicle-edit/vehicle-edit.component";
+import {Error404Component} from "./pantallas/error404/error404.component";
 
 export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => import('./pantallas/home/home.page').then((m) => m.HomePage),
   },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
+
   {
     path: 'registro',
     loadComponent: () => import('./pantallas/register/register.component').then((m) => m.RegisterComponent),
@@ -38,5 +35,13 @@ export const routes: Routes = [
   {
     path: 'vehicle-edit/:id',
     component: VehicleEditComponent
-  }
+  },
+  {
+    path: 'vehicle-create',
+    component: VehicleEditComponent
+  },
+   {
+    path: '**',
+    component: Error404Component,
+  },
 ];

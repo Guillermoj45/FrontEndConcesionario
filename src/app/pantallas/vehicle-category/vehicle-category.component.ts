@@ -152,7 +152,7 @@ export class VehicleCategoryComponent  implements OnInit {
     console.log(this.maxPrice, this.minPrice);
     console.log("refrescafsdfsdfsdfsdfsdfskskdbfkmsbdkbksbflkbsdkfbksjdfklbsdkfjbskdbfkjsbdfkjskdjfbksjbdfkjsdfndo");
     return response.map(item => new Vehicle(
-      item.id,
+      item.id!,
       item.model,
       new Date(item.year),
       item.price,
