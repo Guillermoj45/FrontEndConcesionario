@@ -13,4 +13,8 @@ export class BookingService {
   getBookings() {
     return this.http.get<Booking[]>('/api/booking')
   }
+
+  postBooking(booking: any) {
+    return this.http.post<any>('/api/booking', booking)
+  }
 }

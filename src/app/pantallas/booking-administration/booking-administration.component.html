@@ -1,12 +1,11 @@
 <app-navar></app-navar>
 
+<ion-content>
 <ion-title>Tus reservas</ion-title>
-<app-tajeta-vehiculo-administration *ngFor="let booking of bookings"
-                                    [bookings]="booking"></app-tajeta-vehiculo-administration>
-<ion-content></ion-content>
-<ion-content></ion-content>
-<ion-content></ion-content>
-<ion-content></ion-content>
-<ion-content></ion-content>
-<ion-content></ion-content>
+  <div style="display: flex; flex-wrap: wrap">
+    <div *ngFor="let booking of bookings" style="display: flex !important; width: max-content" >
+      <app-tajeta-vehiculo-administration [bookings]="booking" class="tarje"></app-tajeta-vehiculo-administration>
+    </div>
+  </div>
+  </ion-content>
 

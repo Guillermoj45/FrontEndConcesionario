@@ -9,6 +9,7 @@ import {Booking} from "../../models/Booking";
 import {NgForOf} from "@angular/common";
 import {User} from "../../models/User";
 import {Vehicle} from "../../models/Vehicle";
+import {TarjetaCocheComponent} from "../../component/tarjeta-coche/tarjeta-coche.component";
 
 @Component({
   selector: 'app-booking-administration',
@@ -19,7 +20,8 @@ import {Vehicle} from "../../models/Vehicle";
     IonTitle,
     TajetaVehiculoAdministrationComponent,
     NgForOf,
-    IonContent
+    IonContent,
+    TarjetaCocheComponent
   ],
   standalone: true
 })
@@ -60,4 +62,5 @@ export class BookingAdministrationComponent implements OnInit {
     });
   }
 
+  protected readonly Booking = Booking;
 }
