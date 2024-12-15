@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {IonButton, IonInput, IonItem, IonLabel, IonText, IonTitle} from "@ionic/angular/standalone";
 import {FormsModule} from "@angular/forms";
-import {LoginService} from "../service/Login.service";
-import {AuthService} from "../service/auth.service";
+import {LoginService} from "../../service/Login.service";
+import {AuthService} from "../../service/auth.service";
 
 @Component({
   selector: 'app-register',

@@ -1,0 +1,11 @@
+<ion-card>
+  <img alt="Silhouette of mountains" [src]="vehicle.image" />
+  <ion-card-header>
+    <ion-card-title>{{ vehicle.model }} {{ vehicle.year.getFullYear() }}</ion-card-title>
+    <ion-card-subtitle>{{ vehicle.brand }}  {{ vehicle.price }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ vehicle.model }} del año {{ vehicle.year.getFullYear() }} con un precio de {{ vehicle.price }} €
+  </ion-card-content>
+</ion-card>

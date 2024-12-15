@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import {LoginComponent} from "./login/login.component";
+import {LoginComponent} from "./pantallas/login/login.component";
 
 export const routes: Routes = [
   {
     path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    loadComponent: () => import('./pantallas/home/home.page').then((m) => m.HomePage),
   },
   {
     path: '',
@@ -13,7 +13,7 @@ export const routes: Routes = [
   },
   {
     path: 'registro',
-    loadComponent: () => import('./register/register.component').then((m) => m.RegisterComponent),
+    loadComponent: () => import('./pantallas/register/register.component').then((m) => m.RegisterComponent),
   },
   {
     path: 'login',
