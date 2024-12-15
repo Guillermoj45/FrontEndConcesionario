@@ -8,7 +8,7 @@ import {User} from "../models/User";
 })
 export class UserService {
 
-  constructor(private  http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getUser(){
     return this.http.get<any>("api/user/this");

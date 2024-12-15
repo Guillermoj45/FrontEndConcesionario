@@ -5,6 +5,7 @@
       <li><a routerLink="/home">Inicio</a></li>
       <li><a routerLink="/concesionarios">Concesionarios</a></li>
       <li><a routerLink="/vehiculos">Vehiculos</a></li>
+      <li *ngIf="rol== 'admin'"><a routerLink="/nosotros">Administración de vehículos</a></li>
       <li><a routerLink="/contacto">Contacto</a></li>
     </ul>
   </nav>

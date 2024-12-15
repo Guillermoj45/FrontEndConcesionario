@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 import {UserService} from "../../service/user.service";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-navar',
@@ -8,11 +9,13 @@ import {UserService} from "../../service/user.service";
   styleUrls: ['./navar.component.scss'],
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    NgIf
   ]
 })
 export class NavarComponent  implements OnInit {
   username: string = "SinNombre";
+  rol: string = "SinRol";
 
   constructor(
     private userService: UserService,
@@ -32,7 +35,8 @@ export class NavarComponent  implements OnInit {
       next: (user) => {
         // Código para manejar la respuesta válida
       this.username = user.username;
-      console.log("Nombre de usuario:",user.username);
+      this.rol = user.rol;
+      console.log("Nombre de usuario:",user.username, "Rol:", user.rol);
       },
       error: (err) => {
         // Código para manejar la respuesta inválida
